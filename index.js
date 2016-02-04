@@ -20,7 +20,7 @@ function doRequest(method, url, options) {
   var req = JSON.stringify({
     method: method,
     url: url,
-    options: options
+    options: JSON.parse(options)
   });
   var res = spawnSync(process.execPath, [require.resolve('./lib/worker.js')], {input: req});
   if (res.status !== 0) {
